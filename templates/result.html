@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Result</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            padding: 50px 20px;
+        }
+        .card {
+            max-width: 500px;
+            margin: auto; /* Center the card */
+        }
+        .card-title {
+            font-weight: bold;
+            text-align: center;
+        }
+        .alert {
+            text-align: center; /* Center the alert */
+        }
+    </style>
+    <script>
+        function showAlertAndRedirect(message) {
+            alert(message);  // Show alert with the message
+            window.location.href = "/";  // Redirect to the index page
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <center>
+            <h1>Result</h1>
+
+            {% if message %}
+                <script>
+                    showAlertAndRedirect("{{ message }}");  // Call function with the message
+                </script>
+            {% endif %}
+
+            {% if msg %}
+                <div class="alert alert-warning" role="alert">
+                    {{ msg }}
+                </div>
+            {% endif %}
+            
+            {% if Name %}
+                <div class="card mt-4">
+                    <div class="card-body">
+                        <h5 class="card-title">User Details</h5>
+                        <p class="card-text"><strong>Name:</strong> {{ Name }}</p>
+                        <p class="card-text"><strong>ID:</strong> {{ ID }}</p>
+                    </div>
+                </div>
+            {% endif %}
+            
+            <!-- Home Button -->
+            <div class="mt-4">
+                <a href="/" class="btn btn-primary">Home</a> <!-- Adjust the link as necessary -->
+            </div>
+        </center>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
